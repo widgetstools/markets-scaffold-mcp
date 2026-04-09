@@ -1,0 +1,42 @@
+{
+  "name": "{{APP_NAME}}",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development"
+  },
+  "private": true,
+  "//dependencies-registry-notes": {
+    "description": "Local tarballs in libs/ mirror fi-trading-terminal/angular-app pinned versions.",
+    "bundled-locally": {
+      "@widgetstools/angular-dock-manager": "0.1.32",
+      "@widgetstools/dock-manager-core": "0.1.32"
+    }
+  },
+  "dependencies": {
+    "@angular/animations": "21.1.2",
+    "@angular/common": "21.1.2",
+    "@angular/compiler": "21.1.2",
+    "@angular/core": "21.1.2",
+    "@angular/forms": "21.1.2",
+    "@angular/platform-browser": "21.1.2",
+    "@angular/router": "21.1.2",
+    "@primeng/themes": "^20.3.0",
+    "@widgetstools/angular-dock-manager": "file:libs/widgetstools-angular-dock-manager-0.1.32.tgz",
+    "@widgetstools/dock-manager-core": "file:libs/widgetstools-dock-manager-core-0.1.32.tgz",
+    "ag-grid-angular": "^35.1.0",
+    "ag-grid-community": "^35.1.0",
+    "ag-grid-enterprise": "^35.1.0",
+    "primeng": "^21.1.3",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular/build": "21.1.2",
+    "@angular/cli": "21.1.2",
+    "@angular/compiler-cli": "21.1.2",
+    "typescript": "~5.9.2"
+  }
+}

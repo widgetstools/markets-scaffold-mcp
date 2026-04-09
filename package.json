@@ -1,0 +1,37 @@
+{
+  "name": "markets-scaffold-mcp",
+  "version": "0.1.0",
+  "description": "Local MCP server that scaffolds React or Angular apps preloaded with the Markets design system, dock manager, and theme toggle.",
+  "type": "module",
+  "bin": {
+    "markets-scaffold-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "assets",
+    "templates",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "bundle": "node scripts/bundle.mjs",
+    "dist:zip": "npm run bundle && node scripts/make-dist.mjs",
+    "start": "node dist/index.js",
+    "dev": "tsc --watch",
+    "smoke": "node scripts/smoke.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "fs-extra": "^11.2.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^22.10.2",
+    "esbuild": "^0.28.0",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

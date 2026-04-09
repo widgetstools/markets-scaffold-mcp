@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Geist:wght@300;400;500;600&display=swap');
+
+/* ── Design System Tokens ── */
+@import '../design-system/themes/fi-dark.css';
+@import '../design-system/themes/fi-light.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root { height: 100%; width: 100%; overflow: hidden; margin: 0; }
+  body {
+    background: var(--bn-bg);
+    color: var(--bn-t0);
+    font-family: var(--fi-sans);
+    font-size: var(--fi-font-sm);
+  }
+}
+
+.font-mono-fi { font-family: var(--fi-mono) !important; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* ── Dock manager theme overrides ── */
+.dock-manager-container {
+  --dock-background: var(--bn-bg);
+  --dock-panel-background: var(--bn-bg1);
+  --dock-tab-active-background: var(--bn-bg1);
+  --dock-tab-inactive-background: var(--bn-bg2);
+  --dock-border-color: var(--bn-border);
+  --dock-splitter-color: var(--bn-border);
+  --dock-tab-color: var(--bn-t1);
+  --dock-tab-active-color: var(--bn-t0);
+}
+
+/* ── Order book row tints ── */
+.ob-row-ask { position: relative; }
+.ob-row-ask::after {
+  content: ''; position: absolute; right: 0; top: 0; bottom: 0;
+  background: var(--ob-ask-fill);
+  width: var(--fill-pct, 0%);
+}
+.ob-row-bid { position: relative; }
+.ob-row-bid::after {
+  content: ''; position: absolute; right: 0; top: 0; bottom: 0;
+  background: var(--ob-bid-fill);
+  width: var(--fill-pct, 0%);
+}

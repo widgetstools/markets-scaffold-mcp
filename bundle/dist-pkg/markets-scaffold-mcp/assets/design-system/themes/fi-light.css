@@ -1,0 +1,73 @@
+/*
+ * FI Design System — Light Theme
+ * Neutral gray palette modeled after VS Code Light Modern.
+ * Pure white card surfaces on a warm-neutral gray ground.
+ * No blue/warm tint in chrome — trading accents provide all color.
+ * High text contrast for readability (WCAG AA on all tiers).
+ */
+
+[data-theme="light"] {
+  /* ── shadcn/ui overrides ── */
+  --background: 0 0% 97%;
+  --foreground: 0 0% 23%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 23%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 23%;
+  --primary: 38 92% 50%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 95%;
+  --secondary-foreground: 0 0% 35%;
+  --muted: 0 0% 96%;
+  --muted-foreground: 0 0% 38%;
+  --accent: 0 0% 95%;
+  --accent-foreground: 0 0% 23%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 90%;
+  --input: 0 0% 90%;
+  --ring: 38 92% 50%;
+
+  /* ── Surface (neutral grays, VS Code Light Modern style) ── */
+  --bn-bg:      #f8f8f8;
+  --bn-bg1:     #ffffff;
+  --bn-bg2:     #f3f3f3;
+  --bn-bg3:     #e8e8e8;
+
+  /* ── Text (neutral, high contrast) ── */
+  --bn-t0:      #3b3b3b;
+  --bn-t1:      #616161;
+  --bn-t2:      #767676;
+  --bn-t3:      #a0a0a0;
+
+  /* ── Border (pure neutral) ── */
+  --bn-border:  #e5e5e5;
+  --bn-border2: #d4d4d4;
+
+  /* ── Accent (vibrant trading colors — WCAG AA compliant on white) ── */
+  --bn-green:   #0d9488;
+  --bn-green2:  #0f766e;
+  --bn-red:     #dc2626;
+  --bn-red2:    #b91c1c;
+  --bn-yellow:  #d97706;
+  --bn-blue:    #2563eb;
+  --bn-cyan:    #0891b2;
+
+  /* ── Actions ── */
+  --bn-buy-bg:  #0d9488;
+  --bn-sell-bg: #dc2626;
+  --bn-cta-text: #ffffff;
+  --bn-logo-bg: #ffffff;
+
+  /* ── Order Book / Trade Ticket fills ── */
+  --ob-bid-fill:   rgba(20, 184, 166, 0.18);
+  --ob-ask-fill:   rgba(239, 68, 68, 0.14);
+  --tt-bid-strip:  rgba(37, 99, 235, 0.10);
+  --tt-ask-strip:  rgba(220, 38, 38, 0.10);
+
+  /* ── Misc ── */
+  --scrollbar-thumb: #c4c4c4;
+
+  /* ── Accessibility: bump minimum font size ── */
+  --fi-font-xs: 10px;
+}

@@ -1,0 +1,46 @@
+{
+  "name": "{{APP_NAME}}",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "//dependencies-registry-notes": {
+    "description": "Local tarballs in libs/ mirror fi-trading-terminal/react-app pinned versions.",
+    "bundled-locally": {
+      "@widgetstools/react-dock-manager": "0.1.32",
+      "@widgetstools/dock-manager-core": "0.1.32",
+      "react-day-picker": "9.14.0",
+      "@tabby_ai/hijri-converter": "1.0.5"
+    }
+  },
+  "dependencies": {
+    "ag-grid-community": "^35.1.0",
+    "ag-grid-enterprise": "^35.1.0",
+    "ag-grid-react": "^35.1.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.554.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "tailwind-merge": "^3.5.0",
+    "react-day-picker": "file:libs/react-day-picker-9.14.0.tgz",
+    "@tabby_ai/hijri-converter": "file:libs/tabby_ai-hijri-converter-1.0.5.tgz",
+    "@widgetstools/react-dock-manager": "file:libs/widgetstools-react-dock-manager-0.1.32.tgz",
+    "@widgetstools/dock-manager-core": "file:libs/widgetstools-dock-manager-core-0.1.32.tgz"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.15",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.2",
+    "autoprefixer": "^10.4.24",
+    "postcss": "^8.5.8",
+    "tailwindcss": "3.4.1",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "~5.9.3",
+    "vite": "^7.0.8"
+  }
+}
