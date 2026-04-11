@@ -9,34 +9,48 @@
   },
   "private": true,
   "//dependencies-registry-notes": {
-    "description": "Local tarballs in libs/ mirror fi-trading-terminal/angular-app pinned versions.",
+    "description": "All dependencies are bundled as local tarballs in libs/ for offline/corporate-artifactory use.",
     "bundled-locally": {
+      "@angular/animations": "21.1.2",
+      "@angular/common": "21.1.2",
+      "@angular/compiler": "21.1.2",
+      "@angular/core": "21.1.2",
+      "@angular/forms": "21.1.2",
+      "@angular/platform-browser": "21.1.2",
+      "@angular/router": "21.1.2",
+      "@primeng/themes": "20.3.0",
+      "ag-grid-angular": "35.1.0",
+      "ag-grid-community": "35.1.0",
+      "ag-grid-enterprise": "35.1.0",
+      "primeng": "21.1.3",
+      "rxjs": "7.8.0",
+      "tslib": "2.3.0",
       "@widgetstools/angular-dock-manager": "0.1.32",
       "@widgetstools/dock-manager-core": "0.1.32"
     }
   },
   "dependencies": {
-    "@angular/animations": "21.1.2",
-    "@angular/common": "21.1.2",
-    "@angular/compiler": "21.1.2",
-    "@angular/core": "21.1.2",
-    "@angular/forms": "21.1.2",
-    "@angular/platform-browser": "21.1.2",
-    "@angular/router": "21.1.2",
-    "@primeng/themes": "^20.3.0",
+    "@angular/animations": "file:libs/angular-animations-21.1.2.tgz",
+    "@angular/common": "file:libs/angular-common-21.1.2.tgz",
+    "@angular/compiler": "file:libs/angular-compiler-21.1.2.tgz",
+    "@angular/core": "file:libs/angular-core-21.1.2.tgz",
+    "@angular/forms": "file:libs/angular-forms-21.1.2.tgz",
+    "@angular/platform-browser": "file:libs/angular-platform-browser-21.1.2.tgz",
+    "@angular/router": "file:libs/angular-router-21.1.2.tgz",
+    "@primeng/themes": "file:libs/primeng-themes-20.3.0.tgz",
     "@widgetstools/angular-dock-manager": "file:libs/widgetstools-angular-dock-manager-0.1.32.tgz",
     "@widgetstools/dock-manager-core": "file:libs/widgetstools-dock-manager-core-0.1.32.tgz",
-    "ag-grid-angular": "^35.1.0",
-    "ag-grid-community": "^35.1.0",
-    "ag-grid-enterprise": "^35.1.0",
-    "primeng": "^21.1.3",
-    "rxjs": "~7.8.0",
-    "tslib": "^2.3.0"
+    "ag-grid-angular": "file:libs/ag-grid-angular-35.1.0.tgz",
+    "ag-grid-community": "file:libs/ag-grid-community-35.1.0.tgz",
+    "ag-grid-enterprise": "file:libs/ag-grid-enterprise-35.1.0.tgz",
+    "primeng": "file:libs/primeng-21.1.3.tgz",
+    "rxjs": "file:libs/rxjs-7.8.0.tgz",
+    "tslib": "file:libs/tslib-2.3.0.tgz"
   },
   "devDependencies": {
-    "@angular/build": "21.1.2",
-    "@angular/cli": "21.1.2",
-    "@angular/compiler-cli": "21.1.2",
-    "typescript": "~5.9.2"
+    "@angular/build": "file:libs/angular-build-21.1.2.tgz",
+    "@angular/cli": "file:libs/angular-cli-21.1.2.tgz",
+    "@angular/compiler-cli": "file:libs/angular-compiler-cli-21.1.2.tgz",
+    "typescript": "file:libs/typescript-5.9.2.tgz"
   }
 }

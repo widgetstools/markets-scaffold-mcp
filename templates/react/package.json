@@ -9,38 +9,46 @@
     "preview": "vite preview"
   },
   "//dependencies-registry-notes": {
-    "description": "Local tarballs in libs/ mirror fi-trading-terminal/react-app pinned versions.",
+    "description": "All dependencies are bundled as local tarballs in libs/ for offline/corporate-artifactory use.",
     "bundled-locally": {
-      "@widgetstools/react-dock-manager": "0.1.32",
-      "@widgetstools/dock-manager-core": "0.1.32",
+      "ag-grid-community": "35.1.0",
+      "ag-grid-enterprise": "35.1.0",
+      "ag-grid-react": "35.1.0",
+      "clsx": "2.1.1",
+      "lucide-react": "0.554.0",
+      "react": "19.2.4",
+      "react-dom": "19.2.4",
+      "tailwind-merge": "3.5.0",
       "react-day-picker": "9.14.0",
-      "@tabby_ai/hijri-converter": "1.0.5"
+      "@tabby_ai/hijri-converter": "1.0.5",
+      "@widgetstools/react-dock-manager": "0.1.32",
+      "@widgetstools/dock-manager-core": "0.1.32"
     }
   },
   "dependencies": {
-    "ag-grid-community": "^35.1.0",
-    "ag-grid-enterprise": "^35.1.0",
-    "ag-grid-react": "^35.1.0",
-    "clsx": "^2.1.1",
-    "lucide-react": "^0.554.0",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "tailwind-merge": "^3.5.0",
+    "ag-grid-community": "file:libs/ag-grid-community-35.1.0.tgz",
+    "ag-grid-enterprise": "file:libs/ag-grid-enterprise-35.1.0.tgz",
+    "ag-grid-react": "file:libs/ag-grid-react-35.1.0.tgz",
+    "clsx": "file:libs/clsx-2.1.1.tgz",
+    "lucide-react": "file:libs/lucide-react-0.554.0.tgz",
+    "react": "file:libs/react-19.2.4.tgz",
+    "react-dom": "file:libs/react-dom-19.2.4.tgz",
+    "tailwind-merge": "file:libs/tailwind-merge-3.5.0.tgz",
     "react-day-picker": "file:libs/react-day-picker-9.14.0.tgz",
     "@tabby_ai/hijri-converter": "file:libs/tabby_ai-hijri-converter-1.0.5.tgz",
     "@widgetstools/react-dock-manager": "file:libs/widgetstools-react-dock-manager-0.1.32.tgz",
     "@widgetstools/dock-manager-core": "file:libs/widgetstools-dock-manager-core-0.1.32.tgz"
   },
   "devDependencies": {
-    "@types/node": "^22.19.15",
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.1.2",
-    "autoprefixer": "^10.4.24",
-    "postcss": "^8.5.8",
-    "tailwindcss": "3.4.1",
-    "tailwindcss-animate": "^1.0.7",
-    "typescript": "~5.9.3",
-    "vite": "^7.0.8"
+    "@types/node": "file:libs/types-node-22.19.15.tgz",
+    "@types/react": "file:libs/types-react-19.2.14.tgz",
+    "@types/react-dom": "file:libs/types-react-dom-19.2.3.tgz",
+    "@vitejs/plugin-react": "file:libs/vitejs-plugin-react-5.1.2.tgz",
+    "autoprefixer": "file:libs/autoprefixer-10.4.24.tgz",
+    "postcss": "file:libs/postcss-8.5.8.tgz",
+    "tailwindcss": "file:libs/tailwindcss-3.4.1.tgz",
+    "tailwindcss-animate": "file:libs/tailwindcss-animate-1.0.7.tgz",
+    "typescript": "file:libs/typescript-5.9.3.tgz",
+    "vite": "file:libs/vite-7.0.8.tgz"
   }
 }
