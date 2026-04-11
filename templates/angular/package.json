@@ -23,8 +23,9 @@
       "ag-grid-community": "35.1.0",
       "ag-grid-enterprise": "35.1.0",
       "primeng": "21.1.3",
-      "rxjs": "7.8.0",
+      "rxjs": "7.8.1",
       "tslib": "2.3.0",
+      "zone.js": "0.16.0",
       "@widgetstools/angular-dock-manager": "0.1.32",
       "@widgetstools/dock-manager-core": "0.1.32"
     }
@@ -44,8 +45,9 @@
     "ag-grid-community": "file:libs/ag-grid-community-35.1.0.tgz",
     "ag-grid-enterprise": "file:libs/ag-grid-enterprise-35.1.0.tgz",
     "primeng": "file:libs/primeng-21.1.3.tgz",
-    "rxjs": "file:libs/rxjs-7.8.0.tgz",
-    "tslib": "file:libs/tslib-2.3.0.tgz"
+    "rxjs": "file:libs/rxjs-7.8.1.tgz",
+    "tslib": "file:libs/tslib-2.3.0.tgz",
+    "zone.js": "file:libs/zone.js-0.16.0.tgz"
   },
   "devDependencies": {
     "@angular/build": "file:libs/angular-build-21.1.2.tgz",
