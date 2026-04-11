@@ -3,7 +3,7 @@ import fs from 'fs-extra';
 import { z } from 'zod';
 import { paths } from '../util/paths.js';
 import { copyTemplate } from '../scaffold/copyTemplate.js';
-import { copyDesignSystem, copyLibs } from '../scaffold/copyAssets.js';
+import { copyDesignSystem } from '../scaffold/copyAssets.js';
 import { runNpmInstall } from '../scaffold/postInstall.js';
 
 export const scaffoldReactInput = z.object({
@@ -40,7 +40,6 @@ export async function scaffoldReactApp(input: ScaffoldReactInput): Promise<Scaff
   await fs.ensureDir(appPath);
   await copyTemplate({ from: paths.reactTemplate, to: appPath, appName: name });
   await copyDesignSystem(appPath);
-  await copyLibs(appPath, 'react');
 
   if (runInstall) {
     await runNpmInstall(appPath);

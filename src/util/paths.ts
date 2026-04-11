@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url';
  */
 // Resolve pkgRoot for both layouts:
 //   - tsc build: <pkg>/dist/util/paths.js → two levels up
-//   - esbuild bundle: <pkg>/markets-scaffold-mcp.mjs → same dir
+//   - esbuild bundle: <pkg>/marketsui-mcp.mjs → same dir
 // Walk upward from the compiled file until we find a sibling `assets/` dir.
 import fsSync from 'node:fs';
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -26,7 +26,7 @@ function findPkgRoot(start: string): string {
     if (parent === dir) break;
     dir = parent;
   }
-  throw new Error(`markets-scaffold-mcp: could not locate assets/ + templates/ near ${start}`);
+  throw new Error(`marketsui-mcp: could not locate assets/ + templates/ near ${start}`);
 }
 const pkgRoot = findPkgRoot(here);
 
@@ -37,6 +37,4 @@ export const paths = {
   reactTemplate: path.join(TEMPLATE_DIR, 'react'),
   angularTemplate: path.join(TEMPLATE_DIR, 'angular'),
   designSystem: path.join(ASSET_DIR, 'design-system'),
-  reactLibs: path.join(ASSET_DIR, 'libs', 'react'),
-  angularLibs: path.join(ASSET_DIR, 'libs', 'angular'),
 };

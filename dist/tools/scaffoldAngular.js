@@ -3,7 +3,7 @@ import fs from 'fs-extra';
 import { z } from 'zod';
 import { paths } from '../util/paths.js';
 import { copyTemplate } from '../scaffold/copyTemplate.js';
-import { copyDesignSystem, copyLibs } from '../scaffold/copyAssets.js';
+import { copyDesignSystem } from '../scaffold/copyAssets.js';
 import { runNpmInstall } from '../scaffold/postInstall.js';
 export const scaffoldAngularInput = z.object({
     name: z
@@ -28,7 +28,6 @@ export async function scaffoldAngularApp(input) {
     await fs.ensureDir(appPath);
     await copyTemplate({ from: paths.angularTemplate, to: appPath, appName: name });
     await copyDesignSystem(appPath);
-    await copyLibs(appPath, 'angular');
     if (runInstall) {
         await runNpmInstall(appPath);
     }

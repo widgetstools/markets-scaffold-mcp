@@ -2,7 +2,7 @@
 
 A React + Vite app preloaded with the **Markets Design System**, `@widgetstools/react-dock-manager`, and a trading-style starter layout (Bond Blotter · Chart · Order Book).
 
-Scaffolded by [`markets-scaffold-mcp`](https://github.com/your-org/markets-scaffold-mcp).
+Scaffolded by [`marketsui-mcp`](https://github.com/your-org/marketsui-mcp).
 
 ## Quick start
 

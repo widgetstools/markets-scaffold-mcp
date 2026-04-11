@@ -21,8 +21,8 @@
       "tailwind-merge": "3.5.0",
       "react-day-picker": "9.14.0",
       "@tabby_ai/hijri-converter": "1.0.5",
-      "@widgetstools/react-dock-manager": "0.1.32",
-      "@widgetstools/dock-manager-core": "0.1.32"
+      "@widgetstools/react-dock-manager": "0.1.37",
+      "@widgetstools/dock-manager-core": "0.1.37"
     }
   },
   "dependencies": {
@@ -36,8 +36,8 @@
     "tailwind-merge": "file:libs/tailwind-merge-3.5.0.tgz",
     "react-day-picker": "file:libs/react-day-picker-9.14.0.tgz",
     "@tabby_ai/hijri-converter": "file:libs/tabby_ai-hijri-converter-1.0.5.tgz",
-    "@widgetstools/react-dock-manager": "file:libs/widgetstools-react-dock-manager-0.1.32.tgz",
-    "@widgetstools/dock-manager-core": "file:libs/widgetstools-dock-manager-core-0.1.32.tgz"
+    "@widgetstools/react-dock-manager": "file:libs/widgetstools-react-dock-manager-0.1.37.tgz",
+    "@widgetstools/dock-manager-core": "file:libs/widgetstools-dock-manager-core-0.1.37.tgz"
   },
   "devDependencies": {
     "@types/node": "file:libs/types-node-22.19.15.tgz",

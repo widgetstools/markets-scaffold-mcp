@@ -1,11 +1,11 @@
 import { spawn } from 'node:child_process';
 /**
- * Run `npm install` inside the newly scaffolded directory.
- * Returns a promise that resolves once the process exits (non-zero exits reject).
+ * Run `npm ci` inside the newly scaffolded directory.
+ * Uses the shipped package-lock.json + .npmrc (offline=true) for fully offline installs.
  */
 export function runNpmInstall(cwd) {
     return new Promise((resolve, reject) => {
-        const child = spawn('npm', ['install'], {
+        const child = spawn('npm', ['ci'], {
             cwd,
             stdio: 'inherit',
             shell: process.platform === 'win32',
@@ -15,7 +15,7 @@ export function runNpmInstall(cwd) {
             if (code === 0)
                 resolve();
             else
-                reject(new Error(`npm install exited with code ${code}`));
+                reject(new Error(`npm ci exited with code ${code}`));
         });
     });
 }

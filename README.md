@@ -1,4 +1,4 @@
-# markets-scaffold-mcp
+# marketsui-mcp
 
 A local [Model Context Protocol](https://modelcontextprotocol.io) server that scaffolds new React or Angular apps preloaded with the **Markets design system**, `@widgetstools/dock-manager`, AG Grid (themed via DS adapters), and a dark/light theme toggle.
 
@@ -27,8 +27,8 @@ Each scaffolded app contains:
 Clone and build locally:
 
 ```bash
-git clone <this-repo> markets-scaffold-mcp
-cd markets-scaffold-mcp
+git clone <this-repo> marketsui-mcp
+cd marketsui-mcp
 npm install
 npm run build
 ```
@@ -36,7 +36,7 @@ npm run build
 Optionally link the `bin` globally:
 
 ```bash
-npm link          # exposes `markets-scaffold-mcp` on PATH
+npm link          # exposes `marketsui-mcp` on PATH
 ```
 
 ---
@@ -66,9 +66,9 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS) o
 ```json
 {
   "mcpServers": {
-    "markets-scaffold": {
+    "marketsui": {
       "command": "node",
-      "args": ["/absolute/path/to/markets-scaffold-mcp/dist/index.js"]
+      "args": ["/absolute/path/to/marketsui-mcp/dist/index.js"]
     }
   }
 }
@@ -79,7 +79,7 @@ If you ran `npm link`, you can use the bin directly:
 ```json
 {
   "mcpServers": {
-    "markets-scaffold": { "command": "markets-scaffold-mcp" }
+    "marketsui": { "command": "marketsui-mcp" }
   }
 }
 ```
@@ -89,7 +89,7 @@ Restart Claude Desktop. You should see the `scaffold_markets_react_app` and `sca
 ### Claude Code
 
 ```bash
-claude mcp add markets-scaffold -- node /absolute/path/to/markets-scaffold-mcp/dist/index.js
+claude mcp add marketsui -- node /absolute/path/to/marketsui-mcp/dist/index.js
 ```
 
 ---
@@ -132,7 +132,7 @@ The dev server boots at `http://localhost:5173`, shows the dock layout, and the 
 ## Repo layout
 
 ```
-markets-scaffold-mcp/
+marketsui-mcp/
 ├── src/
 │   ├── index.ts              # MCP server entrypoint (stdio)
 │   ├── tools/                # scaffold_markets_{react,angular}_app
@@ -140,13 +140,14 @@ markets-scaffold-mcp/
 │   └── util/paths.ts
 ├── templates/
 │   ├── react/                # React + Vite app skeleton
+│   │   └── libs/             # pinned .tgz tarballs (full offline tree)
 │   └── angular/              # Angular app skeleton
+│       └── libs/             # pinned .tgz tarballs (full offline tree)
 └── assets/
-    ├── design-system/        # verbatim DS copy
-    └── libs/{react,angular}/ # pinned .tgz tarballs
+    └── design-system/        # verbatim DS copy
 ```
 
-To refresh pinned versions, re-copy `design-system/` and re-run `npm pack` on the dock-manager packages, then drop the tarballs into `assets/libs/*/`.
+To refresh pinned versions, re-copy `design-system/` and re-run `npm pack` on the dock-manager packages, then drop the tarballs into `templates/{react,angular}/libs/` and regenerate the matching `package-lock.json`.
 
 ---
 

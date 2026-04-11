@@ -8,17 +8,3 @@ export async function copyDesignSystem(target) {
     const dst = path.join(target, 'design-system');
     await fs.copy(paths.designSystem, dst, { overwrite: true });
 }
-/**
- * Copy all framework-specific .tgz libs into `<target>/libs`.
- */
-export async function copyLibs(target, framework) {
-    const srcDir = framework === 'react' ? paths.reactLibs : paths.angularLibs;
-    const dstDir = path.join(target, 'libs');
-    await fs.ensureDir(dstDir);
-    const entries = await fs.readdir(srcDir);
-    for (const name of entries) {
-        if (name.endsWith('.tgz')) {
-            await fs.copy(path.join(srcDir, name), path.join(dstDir, name));
-        }
-    }
-}

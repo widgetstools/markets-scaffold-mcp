@@ -6,11 +6,13 @@ import { type DockManagerState, slateDark, vsCodeLight } from '@widgetstools/doc
 import { BondBlotterWidget } from './widgets/bond-blotter.widget';
 import { ChartWidget } from './widgets/chart.widget';
 import { OrderBookWidget } from './widgets/order-book.widget';
+import { DesignSystemWidget } from './widgets/design-system.widget';
 
 const WIDGETS: Record<string, Type<any>> = {
   blotter: BondBlotterWidget,
   chart: ChartWidget,
   orderBook: OrderBookWidget,
+  designSystem: DesignSystemWidget,
 };
 
 const INITIAL_LAYOUT: DockManagerState = {
@@ -20,7 +22,7 @@ const INITIAL_LAYOUT: DockManagerState = {
     direction: 'horizontal',
     sizes: [40, 60],
     children: [
-      { type: 'tabgroup', id: 'tg-left', panels: ['blotter'], activePanel: 'blotter' },
+      { type: 'tabgroup', id: 'tg-left', panels: ['blotter', 'designSystem'], activePanel: 'blotter' },
       {
         type: 'split',
         id: 'right',
@@ -37,6 +39,7 @@ const INITIAL_LAYOUT: DockManagerState = {
     blotter: { id: 'blotter', title: 'Bond Blotter', widgetType: 'blotter', closable: false },
     chart: { id: 'chart', title: 'Chart', widgetType: 'chart', closable: false },
     orderBook: { id: 'orderBook', title: 'Order Book', widgetType: 'orderBook', closable: false },
+    designSystem: { id: 'designSystem', title: 'Design System', widgetType: 'designSystem', closable: false },
   },
   floatingPanels: [],
   popoutPanels: [],

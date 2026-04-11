@@ -12,7 +12,7 @@ await build({
   platform: 'node',
   format: 'esm',
   target: 'node18',
-  outfile: path.join(root, 'bundle/markets-scaffold-mcp.mjs'),
+  outfile: path.join(root, 'bundle/marketsui-mcp.mjs'),
   // src/index.ts already has a #!/usr/bin/env node shebang which esbuild preserves.
   banner: {
     js: [

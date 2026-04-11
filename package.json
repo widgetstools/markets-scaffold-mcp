@@ -1,10 +1,10 @@
 {
-  "name": "markets-scaffold-mcp",
+  "name": "marketsui-mcp",
   "version": "0.1.0",
   "description": "Local MCP server that scaffolds React or Angular apps preloaded with the Markets design system, dock manager, and theme toggle.",
   "type": "module",
   "bin": {
-    "markets-scaffold-mcp": "dist/index.js"
+    "marketsui-mcp": "dist/index.js"
   },
   "files": [
     "dist",

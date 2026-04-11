@@ -4,7 +4,7 @@ import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { scaffoldReactApp, scaffoldReactInput } from './tools/scaffoldReact.js';
 import { scaffoldAngularApp, scaffoldAngularInput } from './tools/scaffoldAngular.js';
 const server = new McpServer({
-    name: 'markets-scaffold-mcp',
+    name: 'marketsui-mcp',
     version: '0.1.0',
 });
 server.registerTool('scaffold_markets_react_app', {
@@ -29,9 +29,9 @@ async function main() {
     const transport = new StdioServerTransport();
     await server.connect(transport);
     // Keep stderr clean; MCP uses stdout for the protocol.
-    process.stderr.write('markets-scaffold-mcp ready\n');
+    process.stderr.write('marketsui-mcp ready\n');
 }
 main().catch((err) => {
-    process.stderr.write(`markets-scaffold-mcp fatal: ${err?.stack ?? err}\n`);
+    process.stderr.write(`marketsui-mcp fatal: ${err?.stack ?? err}\n`);
     process.exit(1);
 });

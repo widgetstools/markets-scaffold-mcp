@@ -23214,7 +23214,7 @@ function findPkgRoot(start) {
     if (parent === dir) break;
     dir = parent;
   }
-  throw new Error(`markets-scaffold-mcp: could not locate assets/ + templates/ near ${start}`);
+  throw new Error(`marketsui-mcp: could not locate assets/ + templates/ near ${start}`);
 }
 var pkgRoot = findPkgRoot(here);
 var TEMPLATE_DIR = path.join(pkgRoot, "templates");
@@ -23222,9 +23222,7 @@ var ASSET_DIR = path.join(pkgRoot, "assets");
 var paths = {
   reactTemplate: path.join(TEMPLATE_DIR, "react"),
   angularTemplate: path.join(TEMPLATE_DIR, "angular"),
-  designSystem: path.join(ASSET_DIR, "design-system"),
-  reactLibs: path.join(ASSET_DIR, "libs", "react"),
-  angularLibs: path.join(ASSET_DIR, "libs", "angular")
+  designSystem: path.join(ASSET_DIR, "design-system")
 };
 
 // src/scaffold/copyTemplate.ts
@@ -23281,17 +23279,6 @@ async function copyDesignSystem(target) {
   const dst = path3.join(target, "design-system");
   await import_fs_extra2.default.copy(paths.designSystem, dst, { overwrite: true });
 }
-async function copyLibs(target, framework) {
-  const srcDir = framework === "react" ? paths.reactLibs : paths.angularLibs;
-  const dstDir = path3.join(target, "libs");
-  await import_fs_extra2.default.ensureDir(dstDir);
-  const entries = await import_fs_extra2.default.readdir(srcDir);
-  for (const name of entries) {
-    if (name.endsWith(".tgz")) {
-      await import_fs_extra2.default.copy(path3.join(srcDir, name), path3.join(dstDir, name));
-    }
-  }
-}
 
 // src/scaffold/postInstall.ts
 import { spawn } from "node:child_process";
@@ -23328,7 +23315,6 @@ async function scaffoldReactApp(input) {
   await import_fs_extra3.default.ensureDir(appPath);
   await copyTemplate({ from: paths.reactTemplate, to: appPath, appName: name });
   await copyDesignSystem(appPath);
-  await copyLibs(appPath, "react");
   if (runInstall) {
     await runNpmInstall(appPath);
   }
@@ -23359,7 +23345,6 @@ async function scaffoldAngularApp(input) {
   await import_fs_extra4.default.ensureDir(appPath);
   await copyTemplate({ from: paths.angularTemplate, to: appPath, appName: name });
   await copyDesignSystem(appPath);
-  await copyLibs(appPath, "angular");
   if (runInstall) {
     await runNpmInstall(appPath);
   }
@@ -23372,7 +23357,7 @@ async function scaffoldAngularApp(input) {
 
 // src/index.ts
 var server = new McpServer({
-  name: "markets-scaffold-mcp",
+  name: "marketsui-mcp",
   version: "0.1.0"
 });
 server.registerTool(
@@ -23404,10 +23389,10 @@ server.registerTool(
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  process.stderr.write("markets-scaffold-mcp ready\n");
+  process.stderr.write("marketsui-mcp ready\n");
 }
 main().catch((err) => {
-  process.stderr.write(`markets-scaffold-mcp fatal: ${err?.stack ?? err}
+  process.stderr.write(`marketsui-mcp fatal: ${err?.stack ?? err}
 `);
   process.exit(1);
 });

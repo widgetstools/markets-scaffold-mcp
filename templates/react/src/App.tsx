@@ -7,15 +7,18 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 import { BondBlotterPanel } from '@/components/panels/BondBlotterPanel';
 import { ChartPanel } from '@/components/panels/ChartPanel';
 import { OrderBookPanel } from '@/components/panels/OrderBookPanel';
+import { DesignSystemPanel } from '@/components/panels/DesignSystemPanel';
 
 function W_Blotter(_p: WidgetProps) { return <BondBlotterPanel />; }
 function W_Chart(_p: WidgetProps) { return <ChartPanel />; }
 function W_OrderBook(_p: WidgetProps) { return <OrderBookPanel />; }
+function W_DesignSystem(_p: WidgetProps) { return <DesignSystemPanel />; }
 
 const WIDGETS: Record<string, React.ComponentType<WidgetProps>> = {
   blotter: W_Blotter,
   chart: W_Chart,
   orderBook: W_OrderBook,
+  designSystem: W_DesignSystem,
 };
 
 const INITIAL_LAYOUT: DockManagerState = {
@@ -25,7 +28,7 @@ const INITIAL_LAYOUT: DockManagerState = {
     direction: 'horizontal',
     sizes: [40, 60],
     children: [
-      { type: 'tabgroup', id: 'tg-left',  panels: ['blotter'],   activePanel: 'blotter' },
+      { type: 'tabgroup', id: 'tg-left',  panels: ['blotter', 'designSystem'], activePanel: 'blotter' },
       {
         type: 'split',
         id: 'right',
@@ -39,9 +42,10 @@ const INITIAL_LAYOUT: DockManagerState = {
     ],
   },
   panels: {
-    blotter:   { id: 'blotter',   title: 'Bond Blotter', widgetType: 'blotter',   closable: false },
-    chart:     { id: 'chart',     title: 'Chart',        widgetType: 'chart',     closable: false },
-    orderBook: { id: 'orderBook', title: 'Order Book',   widgetType: 'orderBook', closable: false },
+    blotter:      { id: 'blotter',      title: 'Bond Blotter',  widgetType: 'blotter',      closable: false },
+    chart:        { id: 'chart',        title: 'Chart',         widgetType: 'chart',        closable: false },
+    orderBook:    { id: 'orderBook',    title: 'Order Book',    widgetType: 'orderBook',    closable: false },
+    designSystem: { id: 'designSystem', title: 'Design System', widgetType: 'designSystem', closable: false },
   },
   floatingPanels: [],
   popoutPanels: [],
