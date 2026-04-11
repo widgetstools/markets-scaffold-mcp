@@ -23297,7 +23297,7 @@ async function copyLibs(target, framework) {
 import { spawn } from "node:child_process";
 function runNpmInstall(cwd) {
   return new Promise((resolve, reject) => {
-    const child = spawn("npm", ["install"], {
+    const child = spawn("npm", ["ci"], {
       cwd,
       stdio: "inherit",
       shell: process.platform === "win32"
@@ -23305,7 +23305,7 @@ function runNpmInstall(cwd) {
     child.on("error", reject);
     child.on("exit", (code) => {
       if (code === 0) resolve();
-      else reject(new Error(`npm install exited with code ${code}`));
+      else reject(new Error(`npm ci exited with code ${code}`));
     });
   });
 }
