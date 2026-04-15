@@ -20,11 +20,6 @@
 
 .font-mono-fi { font-family: var(--fi-mono) !important; }
 
-/* ── Scrollbar ── */
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
-::-webkit-scrollbar-track { background: transparent; }
-
 /* ── Dock manager theme overrides ── */
 .dock-manager-container {
   --dock-background: var(--bn-bg);

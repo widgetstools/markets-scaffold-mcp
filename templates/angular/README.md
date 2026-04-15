@@ -22,7 +22,7 @@ Open the dev server URL printed by `ng serve`. The top-right button toggles betw
 │   ├── adapters/               ← ag-grid, shadcn, primeng adapters
 │   ├── tokens/                 ← primitives, semantic, components
 │   └── cell-renderers.ts
-├── libs/                       ← Local .tgz tarballs (dock manager)
+├── libs/                       ← Local .tgz tarballs for packages that aren't on every corporate mirror (dock manager, @primeng/themes)
 ├── src/
 │   ├── main.ts
 │   ├── styles.scss             ← Imports design system theme CSS + dock manager styles

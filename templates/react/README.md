@@ -22,7 +22,7 @@ Open the dev server URL printed by Vite. The top-right button toggles between **
 │   ├── adapters/               ← ag-grid, shadcn, primeng adapters
 │   ├── tokens/                 ← primitives, semantic, components
 │   └── cell-renderers.ts
-├── libs/                       ← Local .tgz tarballs (dock manager + transitive deps)
+├── libs/                       ← Local .tgz tarballs for packages that aren't on every corporate mirror (dock manager, lucide-react, tabby_ai-hijri-converter)
 ├── src/
 │   ├── main.tsx                ← ThemeProvider wraps App
 │   ├── App.tsx                 ← DockManagerCore + 3-panel layout + ThemeToggle

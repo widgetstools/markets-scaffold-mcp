@@ -25,10 +25,6 @@ body {
 .font-semibold { font-weight: 600; }
 .font-bold { font-weight: 700; }
 
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
-
 .dock-manager-container {
   --dock-background: var(--bn-bg);
   --dock-panel-background: var(--bn-bg1);

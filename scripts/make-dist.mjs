@@ -1,15 +1,14 @@
 #!/usr/bin/env node
-// Stage a zero-install distribution directory at `bundle/dist-pkg/`:
-//   marketsui-mcp/
-//   ├── marketsui-mcp.mjs   (single esbuild bundle)
-//   ├── assets/
-//   ├── templates/
-//   └── README.md
+// Build a single zero-install distribution zip at `bundle/marketsui-mcp.zip`.
 //
-// Then produce 3 zips:
-//   1. marketsui-mcp-core.zip        — server + templates (no libs) + assets
-//   2. marketsui-mcp-libs-react.zip   — React tarballs only
-//   3. marketsui-mcp-libs-angular.zip — Angular tarballs only
+//   bundle/marketsui-mcp.zip  →  marketsui-mcp/
+//     ├── marketsui-mcp.mjs   (single esbuild bundle)
+//     ├── assets/
+//     ├── templates/
+//     └── README.md
+//
+// Libs are tiny now (only 4 React + 3 Angular tarballs), so everything fits
+// comfortably in a single downloadable zip — no more split libs / LFS.
 import { execSync } from 'node:child_process';
 import fs from 'fs-extra';
 import path from 'node:path';
@@ -32,49 +31,18 @@ await fs.copy(path.join(root, 'README.md'), path.join(staging, 'README.md'));
 // make the bundle executable on unix
 try { fs.chmodSync(path.join(staging, 'marketsui-mcp.mjs'), 0o755); } catch {}
 
-// --- Helper to create a zip and print its size ---
-async function createZip(zipName, cwd, target) {
-  const zipPath = path.join(bundleDir, zipName);
-  await fs.remove(zipPath);
-  execSync(`cd "${cwd}" && zip -rq "${zipPath}" ${target}`, { stdio: 'inherit' });
-  const { size } = await fs.stat(zipPath);
-  console.log(`✓ ${zipName} (${(size / 1024 / 1024).toFixed(1)} MB)`);
-}
+// --- Single zip ---
+const zipPath = path.join(bundleDir, 'marketsui-mcp.zip');
+await fs.remove(zipPath);
+execSync(`cd "${path.join(bundleDir, 'dist-pkg')}" && zip -rq "${zipPath}" marketsui-mcp`, { stdio: 'inherit' });
+const { size } = await fs.stat(zipPath);
+console.log(`✓ marketsui-mcp.zip (${(size / 1024 / 1024).toFixed(1)} MB)`);
 
-// --- 1. Core zip: everything except libs/ directories ---
-// Temporarily move libs dirs out, zip, then move back
-const reactLibs = path.join(staging, 'templates', 'react', 'libs');
-const angularLibs = path.join(staging, 'templates', 'angular', 'libs');
-const tempReactLibs = path.join(bundleDir, '_tmp_react_libs');
-const tempAngularLibs = path.join(bundleDir, '_tmp_angular_libs');
-
-await fs.move(reactLibs, tempReactLibs);
-await fs.move(angularLibs, tempAngularLibs);
-
-await createZip('marketsui-mcp-core.zip', path.join(bundleDir, 'dist-pkg'), 'marketsui-mcp');
-
-// Restore libs
-await fs.move(tempReactLibs, reactLibs);
-await fs.move(tempAngularLibs, angularLibs);
-
-// --- 2. React libs zip ---
-// Structure inside zip: marketsui-mcp/templates/react/libs/*.tgz
-// so it merges cleanly when extracted alongside core
-await createZip(
-  'marketsui-mcp-libs-react.zip',
-  path.join(bundleDir, 'dist-pkg'),
-  'marketsui-mcp/templates/react/libs'
-);
-
-// --- 3. Angular libs zip ---
-await createZip(
-  'marketsui-mcp-libs-angular.zip',
-  path.join(bundleDir, 'dist-pkg'),
-  'marketsui-mcp/templates/angular/libs'
-);
-
-// Remove any legacy zips left over from before the rename
+// Remove any legacy zips from previous multi-zip or renamed builds
 for (const stale of [
+  'marketsui-mcp-core.zip',
+  'marketsui-mcp-libs-react.zip',
+  'marketsui-mcp-libs-angular.zip',
   'markets-scaffold-mcp.zip',
   'markets-scaffold-mcp-core.zip',
   'markets-scaffold-mcp-libs-react.zip',
@@ -83,6 +51,6 @@ for (const stale of [
   const staleZip = path.join(bundleDir, stale);
   if (await fs.pathExists(staleZip)) {
     await fs.remove(staleZip);
-    console.log(`✗ Removed old ${stale}`);
+    console.log(`✗ Removed legacy ${stale}`);
   }
 }

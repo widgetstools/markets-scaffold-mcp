@@ -15,7 +15,7 @@ and get a ready-to-run project with pinned deps, the full `design-system/` tree,
 Each scaffolded app contains:
 
 - **`design-system/`** — verbatim copy of the Markets DS (themes, adapters, cell renderers), as a sibling of `src/`.
-- **`libs/*.tgz`** — local tarballs for `@widgetstools/dock-manager-core`, the framework-specific dock manager, and (React) `react-day-picker` + `tabby_ai-hijri-converter`. Referenced as `file:libs/*.tgz` in `package.json`.
+- **`libs/*.tgz`** — a tiny set of tarballs for packages that are not on every corporate npm mirror (React: `@widgetstools/dock-manager-core`, `@widgetstools/react-dock-manager`, `lucide-react`, `tabby_ai-hijri-converter`; Angular: the two dock-manager packages + `@primeng/themes`). All other dependencies resolve normally from the configured npm registry.
 - **Theme toggle** — top-right sun/moon button; flips `data-theme` on `<html>` and `body.dataset.agThemeMode` for AG Grid; persisted to `localStorage`.
 - **Dock layout** — 3 panels in a `DockManagerCore` (blotter / chart / order book) using sample data.
 - **README** with a Design System usage section (CSS imports, `@design-system/*` path alias, AG Grid + shadcn/PrimeNG adapters, CSS variable reference).
@@ -140,14 +140,14 @@ marketsui-mcp/
 │   └── util/paths.ts
 ├── templates/
 │   ├── react/                # React + Vite app skeleton
-│   │   └── libs/             # pinned .tgz tarballs (full offline tree)
+│   │   └── libs/             # 4 pinned .tgz tarballs (dock-manager + lucide-react + hijri-converter)
 │   └── angular/              # Angular app skeleton
-│       └── libs/             # pinned .tgz tarballs (full offline tree)
+│       └── libs/             # 3 pinned .tgz tarballs (dock-manager + primeng-themes)
 └── assets/
-    └── design-system/        # verbatim DS copy
+    └── design-system/        # verbatim DS copy (themes, tokens, adapters, icons)
 ```
 
-To refresh pinned versions, re-copy `design-system/` and re-run `npm pack` on the dock-manager packages, then drop the tarballs into `templates/{react,angular}/libs/` and regenerate the matching `package-lock.json`.
+To refresh pinned versions, re-copy `design-system/` from fi-trading-terminal, `npm pack` any package that is not on your corporate mirror, drop the tarballs into `templates/{react,angular}/libs/`, and copy the matching `package-lock.json` from fi-trading-terminal (replacing the root `name` with `{{APP_NAME}}`).
 
 ---
 
